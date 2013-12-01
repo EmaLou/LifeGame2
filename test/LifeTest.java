@@ -12,5 +12,31 @@ public class LifeTest {
         assertThat(lifeStatus, is(LifeStatus.alive));
     }
 
+    @Test
+    public void should_alive_when_there_are_2_alive_cell_around_for_a_living_cell() throws Exception {
+        Life life = new Life();
+        life.setStatus(LifeStatus.alive);
+        int aliveNumber = 2;
+        LifeStatus lifeStatus = life.getStatus(aliveNumber);
+        assertThat(lifeStatus, is(LifeStatus.alive));
+    }
 
+    @Test
+    public void should_dead_when_there_are_2_alive_cell_around_for_a_dead_cell() throws Exception {
+        Life life = new Life();
+        life.setStatus(LifeStatus.dead);
+        int aliveNumber = 2;
+        LifeStatus lifeStatus = life.getStatus(aliveNumber);
+        assertThat(lifeStatus, is(LifeStatus.dead));
+    }
+
+    @Test
+    public void should_dead_when_there_are_1_alive_cell_around() throws Exception {
+        Life life = new Life();
+        int aliveNumber = 1;
+        LifeStatus lifeStatus = life.getStatus(aliveNumber);
+        assertThat(lifeStatus, is(LifeStatus.dead));
+
+
+    }
 }
