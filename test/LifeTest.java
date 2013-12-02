@@ -31,12 +31,23 @@ public class LifeTest {
     }
 
     @Test
-    public void should_dead_when_there_are_1_alive_cell_around() throws Exception {
+    public void should_return_alive_status_when_input_star() throws Exception {
         Life life = new Life();
-        int aliveNumber = 1;
-        LifeStatus lifeStatus = life.getStatus(aliveNumber);
-        assertThat(lifeStatus, is(LifeStatus.dead));
+        String alive = "*";
 
+        LifeStatus aliveStatus = life.getStatusFromInput(alive);
 
+        assertThat(aliveStatus, is(LifeStatus.alive));
     }
+
+    @Test
+    public void should_return_dead_status_when_input_bland() throws Exception {
+        Life life = new Life();
+        String dead = " ";
+
+        LifeStatus deadStatus = life.getStatusFromInput(dead);
+
+        assertThat(deadStatus, is(LifeStatus.dead));
+    }
+
 }
