@@ -1,9 +1,16 @@
 public class Life {
     private LifeStatus status;
 
+
+    private LifePosition position;
+
     public void setStatus(LifeStatus status) {
         this.status = status;
     }
+    public void setPosition(LifePosition position) {
+        this.position = position;
+    }
+
     public LifeStatus getStatus(int aliveNumber) {
         modifyStatus(aliveNumber);
         return status;
@@ -18,5 +25,10 @@ public class Life {
 
     public LifeStatus getStatusFromInput(String input) {
         return input.equals("*") ? LifeStatus.alive : LifeStatus.dead;
+    }
+
+
+    public LifePosition getPosition() {
+        return position;
     }
 }

@@ -50,4 +50,17 @@ public class LifeTest {
         assertThat(deadStatus, is(LifeStatus.dead));
     }
 
+    @Test
+    public void should_middle_alive_when_input_three_alive_cell() throws Exception {
+        String[][] input = {{"*","*","*"},{" "," "," "},{" "," "," "}};
+        Earth earth = new Earth();
+        Life life = new Life();
+        LifePosition position = new LifePosition(1,1);
+        life.setPosition(position);
+
+        LifeStatus status = earth.calculateAliveBaseOnAround(life, input);
+
+        assertThat(status, is(LifeStatus.alive));
+    }
+
 }
