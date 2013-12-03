@@ -63,4 +63,17 @@ public class LifeTest {
         assertThat(status, is(LifeStatus.alive));
     }
 
+    @Test
+    public void should_return_output_when_give_status() throws Exception {
+        LifeStatus[][] status = new LifeStatus[3][3];
+        for(int i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
+                status[i][j] = LifeStatus.alive;
+        String[][] expectOut = {{"*","*","*"},{"*","*","*"},{"*","*","*"}};
+        Earth earth = new Earth();
+
+        String[][] output = earth.getOutPut(status);
+
+        assertThat(output, is(expectOut));
+    }
 }

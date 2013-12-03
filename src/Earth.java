@@ -35,4 +35,18 @@ public class Earth {
     public LifeStatus getStatusFromInput(String input) {
         return input.equals("*") ? LifeStatus.alive : LifeStatus.dead;
     }
+
+    public String[][] getOutPut(LifeStatus[][] status) {
+        int length = status.length;
+        String[][] result = new String[length][length];
+        for(int i = 0; i < length; i++)
+            for(int j = 0; j < length; j++){
+                if(status[i][j] == LifeStatus.alive)
+                    result[i][j] = "*";
+                else
+                    result[i][j] = " ";
+            }
+
+        return result;
+    }
 }
