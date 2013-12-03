@@ -32,20 +32,20 @@ public class LifeTest {
 
     @Test
     public void should_return_alive_status_when_input_star() throws Exception {
-        Life life = new Life();
+        Earth earth = new Earth();
         String alive = "*";
 
-        LifeStatus aliveStatus = life.getStatusFromInput(alive);
+        LifeStatus aliveStatus = earth.getStatusFromInput(alive);
 
         assertThat(aliveStatus, is(LifeStatus.alive));
     }
 
     @Test
     public void should_return_dead_status_when_input_bland() throws Exception {
-        Life life = new Life();
+        Earth earth = new Earth();
         String dead = " ";
 
-        LifeStatus deadStatus = life.getStatusFromInput(dead);
+        LifeStatus deadStatus = earth.getStatusFromInput(dead);
 
         assertThat(deadStatus, is(LifeStatus.dead));
     }

@@ -23,9 +23,7 @@ public class Life {
             status = LifeStatus.dead;
     }
 
-    public LifeStatus getStatusFromInput(String input) {
-        return input.equals("*") ? LifeStatus.alive : LifeStatus.dead;
-    }
+
 
 
     public LifePosition getPosition() {

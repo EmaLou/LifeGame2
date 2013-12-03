@@ -11,14 +11,15 @@ public class Earth {
     private int getAliveNumber(LifePosition[] aroundPosition, String[][] input) {
         int aliveNumber = 0;
         for(int i=0; i<aroundPosition.length; i++) {
-            if(input[aroundPosition[i].getX()][aroundPosition[i].getY()].equals("*"))
+            String lifeSymbol = input[aroundPosition[i].getX()][aroundPosition[i].getY()];
+            LifeStatus lifeStatus = getStatusFromInput(lifeSymbol);
+            if(lifeStatus.equals(LifeStatus.alive))
                 aliveNumber ++;
-
         }
         return aliveNumber;
     }
 
-    private LifePosition[] calculateAroundPosition(LifePosition position) {
+    public LifePosition[] calculateAroundPosition(LifePosition position) {
         LifePosition[] result = new LifePosition[8];
         result[0] = new LifePosition(position.getX()-1, position.getY()-1);
         result[1] = new LifePosition(position.getX()-1, position.getY());
@@ -31,4 +32,7 @@ public class Earth {
         return result;
     }
 
+    public LifeStatus getStatusFromInput(String input) {
+        return input.equals("*") ? LifeStatus.alive : LifeStatus.dead;
+    }
 }
