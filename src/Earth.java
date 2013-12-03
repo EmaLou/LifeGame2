@@ -49,4 +49,10 @@ public class Earth {
 
         return result;
     }
+
+    public String[][] calculateOutPut(Life life, String[][] input) {
+        LifeStatus status = calculateAliveBaseOnAround(life, input);
+        input[life.getPosition().getX()][life.getPosition().getY()] = status == LifeStatus.alive?"*":" ";
+        return input;
+    }
 }

@@ -76,4 +76,17 @@ public class LifeTest {
 
         assertThat(output, is(expectOut));
     }
+
+    @Test
+    public void should_return_output_when_give_input() throws Exception {
+        String[][] input = {{"*","*","*"},{" "," "," "},{" "," "," "}};
+        String[][] expectOutput = {{"*","*","*"},{" ","*"," "},{" "," "," "}};
+        Earth earth = new Earth();
+        Life life = new Life();
+        LifePosition position = new LifePosition(1,1);
+        life.setPosition(position);
+
+        String[][] output = earth.calculateOutPut(life, input);
+        assertThat(output, is(expectOutput));
+    }
 }
